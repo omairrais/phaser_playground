@@ -1,8 +1,49 @@
-document.getElementById("app").innerHTML = `
-<h1>Hello Parcel!</h1>
-<div>
-  Look
-  <a href="https://parceljs.org" target="_blank" rel="noopener noreferrer">here</a>
-  for more info about Parcel.
-</div>
-`;
+import * as Phaser from "phaser";
+
+const sceneConfig: Phaser.Types.Scenes.SettingsConfig = {
+  active: false,
+  visible: false,
+  key: "Game"
+};
+
+export class GameScene extends Phaser.Scene {
+  private square: Phaser.GameObjects.Rectangle & {
+    body: Phaser.Physics.Arcade.Body;
+  };
+
+  constructor() {
+    super(sceneConfig); 
+  }
+
+  public create() {
+    this.square = this.add.rectangle(400, 400, 100, 100, 0xffffff) as any;
+    this.physics.add.existing(this.square);
+  }
+
+  public update() {
+    // TODO
+  }
+}
+
+const gameConfig: Phaser.Types.Core.GameConfig = {
+  title: "Sample",
+  scene: GameScene,
+  type: Phaser.AUTO,
+
+  scale: {
+    width: window.innerWidth,
+    height: window.innerHeight
+  },
+
+  physics: {
+    default: "arcade",
+    arcade: {
+      debug: true
+    }
+  },
+
+  parent: "game",
+  backgroundColor: "#000000"
+};
+
+export const game = new Phaser.Game(gameConfig);

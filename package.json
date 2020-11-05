@@ -1,18 +1,17 @@
 {
-  "name": "vanilla-typescript",
+  "name": "phaser-3-experiment",
   "version": "1.0.0",
-  "description": "JavaScript and TypeScript example starter project",
+  "description": "",
   "main": "index.html",
   "scripts": {
     "start": "parcel index.html --open",
     "build": "parcel build index.html"
   },
-  "dependencies": {},
+  "dependencies": {
+    "phaser": "3.24.1"
+  },
   "devDependencies": {
     "parcel-bundler": "^1.6.1"
   },
-  "keywords": [
-    "typescript",
-    "javascript"
-  ]
+  "keywords": []
 }
